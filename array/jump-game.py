@@ -4,7 +4,7 @@ class Solution:
         for i, strep in enumerate(nums):
             if i > far:
                 return False
-            far = i + nums[i]
+            far = max(far, i + nums[i])
             if far >= len(nums) - 1:
                 return True
         return True
