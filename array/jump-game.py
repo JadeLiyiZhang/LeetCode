@@ -1,12 +1,12 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        GOOD, BAD, UNKNOWN = 1, 0, -1
-        memo = [UNKNOWN] * len(nums)
-        memo[-1] = GOOD
-        for i in range(len(nums) - 2, -1, -1):
-            furthest_jump = min(i + nums[i], len(nums) - 1)
-            for j in range(i + 1, furthest_jump + 1):
-                if memo[j] == GOOD:
-                    memo[i] = GOOD
-                    break
-        return memo[0] == GOOD
+        dp = [False] * len(nums)
+        dp[0] = True
+        for i in range(len(nums)):
+            if dp[i]:
+                for j in range(nums[i] + 1):
+                    if i + j >= len(nums) - 1:
+                        return True
+                    else:
+                        dp[i + j] = True
+        return dp[len(nums) - 1]
