@@ -4,7 +4,7 @@ class Solution:
         dp[0] = True
         for i in range(len(nums)):
             if dp[i]:
-                for j in range(nums[i] + 1):
+                for j in range(1, nums[i] + 1):
                     if i + j >= len(nums) - 1:
                         return True
                     else:
