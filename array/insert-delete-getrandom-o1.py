@@ -1,3 +1,4 @@
+from random import choice
 class RandomizedSet:
 
     def __init__(self):
@@ -19,7 +20,8 @@ class RandomizedSet:
         if self.dict[val] == len(self.list) - 1:
             self.list.pop()
         else:
-            self.list[val], self.list[-1] = self.list[-1], self.list[val]
+            idx = self.dict[val]
+            self.list[idx], self.list[-1] = self.list[-1], self.list[idx]
             self.list.pop()
 
         del self.dict[val]
