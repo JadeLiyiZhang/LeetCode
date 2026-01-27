@@ -3,13 +3,14 @@ class Solution:
         n = len(citations)
         bucket = [0] * (n + 1)
 
-        # count number of papers with x citations
+        # count frequencies
         for c in citations:
             if c >= n:
                 bucket[n] += 1
             else:
                 bucket[c] += 1
         
+        # paper: number of papers with citations >= i
         paper = 0
         for i in range(n, -1, -1):
             paper += bucket[i]
