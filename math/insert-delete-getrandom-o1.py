@@ -21,7 +21,9 @@ class RandomizedSet:
             self.list.pop()
         else:
             idx = self.dict[val]
+            last_val = self.list[-1]
             self.list[idx], self.list[-1] = self.list[-1], self.list[idx]
+            self.dict[last_val] =idx
             self.list.pop()
 
         del self.dict[val]
