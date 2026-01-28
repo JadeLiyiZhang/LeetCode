@@ -6,7 +6,7 @@ class Solution:
             res[i] = res[i - 1] * nums[i - 1]
         
         right = 1
-        for i in range(n - 1, -1, -1):
-            res[i] *= right
-            right *= nums[i]
+        for j in range(n - 1, -1, -1):
+            res[j] = res[j] * right
+            right = right * nums[j]
         return res
