@@ -6,7 +6,6 @@ class Solution:
         res = [[] for _ in range(numRows)]
         row = 0
         for char in s:
-            print(row)
             res[row].append(char)
             if row == 0:
                 direction = 1
