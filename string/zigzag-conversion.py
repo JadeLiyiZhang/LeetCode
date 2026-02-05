@@ -1,19 +1,16 @@
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
-        if numRows == 1 or numRows >= len(s):
-            return s
+        direction = 1
         res = [[] for _ in range(numRows)]
-        idx, d = 0, 1
-        
+        row = 0
         for char in s:
-            res[idx].append(char)
-            if idx == 0:
-                d = 1
-            elif idx == numRows - 1:
-                d = -1
-            idx += d
-        
-        for _ in range(numRows):
-            res[_] = ''.join(res[_])
-        res = ''.join(res)
-        return res
+            res[row].append(char)
+            if row == 0:
+                direction = 1
+            if row == numRows - 1:
+                direction = -1
+            row += direction
+        ans = ''
+        for _ in res:
+            ans += ''.join(_)
+        return ans
