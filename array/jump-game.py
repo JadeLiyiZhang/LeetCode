@@ -1,10 +1,8 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        far = 0
-        for i, strep in enumerate(nums):
-            if i > far:
+        furthest = 0
+        for i, step in enumerate(nums):
+            if furthest < i:
                 return False
-            far = max(far, i + nums[i])
-            if far >= len(nums) - 1:
-                return True
+            furthest = max(furthest, i + step)
         return True
