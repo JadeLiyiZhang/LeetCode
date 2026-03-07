@@ -5,7 +5,7 @@ class Solution:
         while s[pointer] == " ":
             pointer -= 1
         
-        while s[pointer] != ' ':
+        while s[pointer] != ' ' and pointer >= 0:
             res += 1
             pointer -= 1
         return res
