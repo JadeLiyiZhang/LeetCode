@@ -1,5 +1,7 @@
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
+        if numRows == 1 or numRows >= len(s):
+            return s
         res = [[] for i in range(numRows)]
         direction = 1
         row = 0
