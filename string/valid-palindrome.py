@@ -5,15 +5,11 @@ class Solution:
         s = s.lower()
         left, right = 0, len(s) - 1
         def isNonAlpha(char):
-            if char.isdigit():
-                return False
-            elif char.isalpha():
-                return False
-            return True
+            return not (char.isdigit() or char.isalpha())
         while left < right:
-            while isNonAlpha(s[left]):
+            while left < right and isNonAlpha(s[left]):
                 left += 1
-            while isNonAlpha(s[right]):
+            while left < right and isNonAlpha(s[right]):
                 right -= 1
             if s[left] != s[right]:
                 return False
