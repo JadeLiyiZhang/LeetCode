@@ -1,5 +1,7 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+        if not s:
+            return True
         s = s.lower()
         left, right = 0, len(s) - 1
         def isNonAlpha(char):
