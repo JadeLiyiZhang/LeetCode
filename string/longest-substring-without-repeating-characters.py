@@ -9,6 +9,6 @@ class Solution:
                 length += 1
             else:
                 res = max(res, i - table[char])
-                length = 0
+                length = 1
                 table[char] = i
         return max(length, res)
