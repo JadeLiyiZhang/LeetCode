@@ -1,13 +1,14 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        longest = 0
-        left = 0
-        right = 0
         table = {}
-        while right < len(s):
-            if s[right] in table and table[s[right]] >= left:
-                left = table[s[right]] + 1
-            longest = max(longest, (right - left) + 1)
-            table[s[right]] = right
-            right += 1
-        return longest
+        length = 0
+        res = 0
+        for i, char in enumerate(s):
+            if char not in table:
+                table[char] = i
+                length += 1
+            else:
+                res = max(res, i - table[char])
+                length = 0
+                table[char] = i
+        return max(length, res)
