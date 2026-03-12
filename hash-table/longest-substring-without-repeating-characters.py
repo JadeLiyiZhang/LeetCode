@@ -1,14 +1,15 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        if not s:
+            return 0
         table = {}
-        length = 0
+        start = 0
         res = 0
         for i, char in enumerate(s):
             if char not in table:
                 table[char] = i
-                length += 1
             else:
-                res = max(res, i - table[char])
-                length = 1
+                res = max(res, i - start)
                 table[char] = i
-        return max(length, res)
+                start = i
+        return res
