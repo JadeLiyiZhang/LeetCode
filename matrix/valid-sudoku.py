@@ -1,33 +1,28 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        N = 9
-
-        # Use hash set to record the status
-        rows = [set() for _ in range(N)]
-        cols = [set() for _ in range(N)]
-        boxes = [set() for _ in range(N)]
-
-        for r in range(N):
-            for c in range(N):
-                val = board[r][c]
-                # Check if the position is filled with number
-                if val == ".":
-                    continue
-
-                # Check the row
-                if val in rows[r]:
+        for row in range(9):
+            table = set()
+            for col in range(9):
+                if board[row][col] != '.' and board[row][col] in table:
                     return False
-                rows[r].add(val)
-
-                # Check the column
-                if val in cols[c]:
+                else:
+                    table.add(board[row][col])
+        
+        for col in range(9):
+            table = set()
+            for row in range(9):
+                if board[row][col] != '.' and board[row][col] in table:
                     return False
-                cols[c].add(val)
-
-                # Check the box
-                idx = (r // 3) * 3 + c // 3
-                if val in boxes[idx]:
+                else:
+                    table.add(board[row][col])
+        
+        boxes = [set() for _ in range(9)]
+        for row in range(9):
+            for col in range(9):
+                idx = (row // 3) * 3 + (col // 3)
+                if board[row][col] in boxes[idx] and board[row][col] != '.':
                     return False
-                boxes[idx].add(val)
+                else:
+                    boxes[idx].add(board[row][col])
 
         return True
