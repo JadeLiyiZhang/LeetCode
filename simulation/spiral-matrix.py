@@ -5,21 +5,24 @@ class Solution:
         left, right = 0, col - 1
         res = []
 
-        while top <= bottom and left <= right:
+        while left <= right and top <= bottom:
+            # from left to right
             for i in range(left, right + 1):
                 res.append(matrix[top][i])
             top += 1
-
+            # from top to bottom
             for j in range(top, bottom + 1):
                 res.append(matrix[j][right])
             right -= 1
-            
+            # from right to left
             if top <= bottom:
-                for i in range(right, left - 1, -1):
-                    res.append(matrix[bottom][i])
+                for k in range(right, left - 1, -1):
+                    res.append(matrix[bottom][k])
                 bottom -= 1
+            # from bottom to top
             if left <= right:
-                for i in range(bottom, top - 1, -1):
-                    res.append(matrix[i][left])
+                for m in range(bottom, top - 1, -1):
+                    res.append(matrix[m][left])
                 left += 1
+        
         return res
