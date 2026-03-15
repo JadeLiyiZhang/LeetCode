@@ -11,7 +11,6 @@ class Solution:
         print(matrix)
 
         # 左右翻转
-        for i in range(n):
-            for j in range(n // 2):
-                matrix[i][j], matrix[i][n - j - 1] = matrix[i][n - j - 1], matrix[i][j]
+        for row in matrix:
+            row.reverse()
         return matrix
