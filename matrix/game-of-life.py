@@ -5,31 +5,23 @@ class Solution:
         """
         row = len(board)
         col = len(board[0])
-        table = [[0] * col for _ in range(row)]
+        directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
         for i in range(row):
             for j in range(col):
-                if board[i][j] == 1:
-                    if i - 1 >= 0 and j - 1 >= 0:
-                        table[i - 1][j - 1] += 1
-                    if i - 1 >= 0:
-                        table[i - 1][j] += 1
-                    if i - 1 >= 0 and j + 1 < col:
-                        table[i - 1][j + 1] += 1
-                    if j - 1 >= 0:
-                        table[i][j - 1] += 1
-                    if j + 1 < col:
-                        table[i][j + 1] += 1
-                    if i + 1 < row and j - 1 >= 0:
-                        table[i + 1][j - 1] += 1
-                    if i + 1 < row:
-                        table[i + 1][j] += 1
-                    if i + 1 < row and j + 1 < col:
-                        table[i + 1][j + 1] += 1
+                neighbors = 0
+                for x, y in directions:
+                    ni, nj = i + x, j + y
+                    if 0 <= ni < row and 0 <= nj < col and abs(board[ni][nj]) == 1:
+                        neighbors += 1
+                if board[i][j] == 1 and (neighbors < 2 or neighbors > 3):
+                    board[i][j] = -1
+                elif board[i][j] == 0 and neighbors == 3:
+                    board[i][j] = 2
+
         
         for i in range(row):
             for j in range(col):
-                if board[i][j] == 1:
-                    if table[i][j] < 2 or table[i][j] > 3:
-                        board[i][j] = 0
-                elif board[i][j] == 0 and table[i][j] == 3:
+                if board[i][j] > 0:
                     board[i][j] = 1
+                else:
+                    board[i][j] = 0
