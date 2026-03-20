@@ -1,11 +1,10 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        dic = {}
+        alpha = [0] * 26
         for char in magazine:
-            dic[char] = dic.get(char, 0) + 1
-        for i in ransomNote:
-            if i not in dic or dic[i] == 0:
+            alpha[ord(char) - ord('a')] += 1
+        for char in ransomNote:
+            if alpha[ord(char) - ord('a')] == 0:
                 return False
-            else:
-                dic[i] -= 1
+            alpha[ord(char) - ord('a')] -= 1
         return True
