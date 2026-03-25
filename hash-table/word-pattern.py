@@ -3,6 +3,8 @@ class Solution:
         mapping_pattern_to_s = {}
         mapping_s_to_pattern = {}
         s = s.split()
+        if len(s) != len(pattern):
+            return False
         for char, word in zip(pattern, s):
             print(char, word)
             if char not in mapping_pattern_to_s and word not in mapping_s_to_pattern:
