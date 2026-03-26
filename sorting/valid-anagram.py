@@ -7,4 +7,7 @@ class Solution:
             if table[ord(char) - ord('a')] == 0:
                 return False
             table[ord(char) - ord('a')] -= 1
+        for _ in table:
+            if _ != 0:
+                return False
         return True
