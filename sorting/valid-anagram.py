@@ -1,14 +1,10 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        store = [0] * 26
+        table = [0] * 26
         for char in s:
-            store[ord(char) - ord('a')] += 1
-
+            table[ord(char) - ord('a')] += 1
         for char in t:
-            store[ord(char) - ord('a')] -= 1
-
-        for num in store:
-            if num != 0:
+            if table[ord(char) - ord('a')] == 0:
                 return False
-
+            table[ord(char) - ord('a')] -= 1
         return True
