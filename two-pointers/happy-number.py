@@ -1,21 +1,20 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
-        def unit_square_sum(n):
+        def get_next(n):
             res = 0
             while n:
-                res += ((n % 10) * (n % 10))
+                digit = n % 10
+                res += digit * digit
                 n //= 10
             return res
-        seen = set()
-        while True:
-            temp = unit_square_sum(n)
-            if temp in seen:
-                return False
-            elif temp == 1:
-                return True
-            else:
-                seen.add(temp)
-                n = temp
 
+        slow = n
+        fast = get_next(n)
+        
+        while fast != 1 and slow != fast:
+            slow = get_next(slow)           # 走一步
+            fast = get_next(get_next(fast)) # 走两步
+            
+        return fast == 1
         
 
