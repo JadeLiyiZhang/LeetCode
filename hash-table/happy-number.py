@@ -1,20 +1,21 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
+        def unit_square_sum(n):
+            res = 0
+            while n:
+                res += (n % 10)
+                n //= 10
+            return res
         seen = set()
         while True:
-            n = self.unitSquare(n)
-            if n == 1:
-                return True
-            elif n in seen:
+            temp = unit_square_sum(n)
+            if temp in seen:
                 return False
+            elif temp == 1:
+                return True
             else:
-                seen.add(n)
+                seen.add(temp)
+                n = temp
+
         
 
-    
-    def unitSquare(self, n):
-        sum = 0
-        while n:
-            sum += (n % 10) * (n % 10)
-            n //= 10
-        return sum
