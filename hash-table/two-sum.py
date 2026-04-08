@@ -2,7 +2,8 @@ class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         table = {}
         for i in range(len(nums)):
-            if (target - nums[i]) in table:
-                return [i, table[target - nums[i]]]
+            rest = target - nums[i]
+            if rest in table:
+                return [i, table[rest]]
             else:
                 table[nums[i]] = i
