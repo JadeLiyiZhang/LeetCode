@@ -3,7 +3,7 @@ class Solution:
         def unit_square_sum(n):
             res = 0
             while n:
-                res += (n % 10)
+                res += ((n % 10) * (n % 10))
                 n //= 10
             return res
         seen = set()
