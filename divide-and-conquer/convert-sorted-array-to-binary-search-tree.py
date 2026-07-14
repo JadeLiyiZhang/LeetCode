@@ -10,8 +10,9 @@ class Solution:
         def helper(left, right):
             if left > right:
                 return
-            mid = (left + right) // 2
-            root = TreeNode(nums[mid])
+            
+            mid = left + (right - left) // 2
+            root = TreeNode(val=nums[mid])
             root.left = helper(left, mid - 1)
             root.right = helper(mid + 1, right)
             return root
