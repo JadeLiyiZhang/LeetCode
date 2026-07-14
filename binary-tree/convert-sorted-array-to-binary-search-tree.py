@@ -18,3 +18,7 @@ class Solution:
             return root
         
         return helper(0, len(nums) - 1)
+
+# Time: O(n)
+# Space: O(logN)
+# n is the number of nodes
