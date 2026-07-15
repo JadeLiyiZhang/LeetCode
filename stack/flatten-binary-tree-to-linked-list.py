@@ -9,9 +9,24 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
-        def helper(root):
-            right_node = root.left
-            root.left = None
-            root.right = helper(right_node)
-            return root
-        return helper(root)
+        if not root:
+            return
+
+        nodes = []
+
+        def dfs(node):
+            if not node:
+                return
+
+            nodes.append(node)
+            dfs(node.left)
+            dfs(node.right)
+
+        dfs(root)
+
+        for i in range(len(nodes) - 1):
+            nodes[i].left = None
+            nodes[i].right = nodes[i + 1]
+
+        nodes[-1].left = None
+        nodes[-1].right = None
