@@ -9,13 +9,9 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
-        self.prev = None
-        def dfs(node):
-            if node is None:
-                return
-            dfs(node.right)
-            dfs(node.left)
-            node.right = self.prev
-            node.left = None
-            self.prev = node
-        dfs(root)
+        def helper(root):
+            right_node = root.left
+            root.left = None
+            root.right = helper(right_node)
+            return root
+        return helper(root)
