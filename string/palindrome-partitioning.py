@@ -1,16 +1,25 @@
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
+        def isPalindrome(left, right):
+            while left <= right:
+                if s[left] == s[right]:
+                    left += 1
+                    right -= 1
+                else:
+                    return False
+            return True
+
         res = []
-        self.backtracking(s, 0, [], res)
+        path = []
+        def backtrack(start):
+            if start == len(s):
+                res.append(path[:])
+                return
+            
+            for end in range(start, len(s)):
+                if isPalindrome(start, end):
+                    path.append(s[start:end + 1])
+                    backtrack(end + 1)
+                    path.pop()
+        backtrack(0)
         return res
-
-    def backtracking(self, s, startIndex, path, res):
-        if startIndex == len(s):
-            res.append(path[:])
-            return
-
-        for i in range(startIndex, len(s)):
-            if s[startIndex:i + 1] == s[startIndex:i + 1][::-1]:
-                path.append(s[startIndex:i + 1])
-                self.backtracking(s, i + 1, path, res)
-                path.pop()
