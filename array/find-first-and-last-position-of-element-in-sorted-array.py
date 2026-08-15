@@ -27,5 +27,7 @@ class Solution:
             return left if nums[left] == target else -1
         
         first = findFirst(nums, target)
+        if first == -1:
+            return [-1, -1]
         last = findLast(nums, target)
         return [first, last]
