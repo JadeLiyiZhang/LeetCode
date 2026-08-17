@@ -9,9 +9,9 @@ class Solution:
         def helper(node):
             if not node:
                 return True
-            if node.left and node.left.val > node.val:
+            if node.left and node.left.val >= node.val:
                 return False
-            if node.right and node.right.val < node.val:
+            if node.right and node.right.val <= node.val:
                 return False
             return helper(node.left) and helper(node.right)
         return helper(root)
