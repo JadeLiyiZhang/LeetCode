@@ -6,14 +6,17 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        num = self.count(root.left)
-        if num == k - 1:
-            return root.val
-        if num >= k:
-            return self.kthSmallest(root.left, k)
-        return self.kthSmallest(root.right, k - 1 - num)
-
-    def count(self, node):
-        if node is None:
-            return 0
-        return 1 + self.count(node.left) + self.count(node.right)
+        self.k = k
+        self.ans = None
+        
+        def helper(node):
+            if not node or self.ans is not None:
+                return
+            helper(node.left)
+            self.k -= 1
+            if self.k == 0:
+                self.ans = node.val
+                return
+            helper(node.right)
+        helper(root)
+        return self.ans
