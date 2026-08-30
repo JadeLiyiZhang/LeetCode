@@ -6,17 +6,14 @@
 #         self.right = right
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        if not root:
-            return True
-
-        def isMirror(left: Optional[TreeNode], right: Optional[TreeNode]) -> bool:
-            # 1. 均为空节点，对称
+        def helper(left, right):
+            if left and not right:
+                return False
+            if right and not left:
+                return False
+            if right and left and right.val != left.val:
+                return False
             if not left and not right:
                 return True
-            # 2. 只有一个为空，或节点值不相等，不对称
-            if not left or not right or left.val != right.val:
-                return False
-            # 3. 递归比较外侧 (left.left, right.right) 与 内侧 (left.right, right.left)
-            return isMirror(left.left, right.right) and isMirror(left.right, right.left)
-
-        return isMirror(root.left, root.right)
+            return helper(left.left, right.right) and helper(left.right, right.left)
+        return helper(root.left, root.right)
