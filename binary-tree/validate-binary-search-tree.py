@@ -9,7 +9,7 @@ class Solution:
         def validation(node, highest, lowest):
             if not node:
                 return True
-            if node.val > highest or node.val < lowest:
+            if node.val >= highest or node.val <= lowest:
                 return False
             else:
                 if node.left:
