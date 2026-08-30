@@ -11,10 +11,5 @@ class Solution:
                 return True
             if node.val >= highest or node.val <= lowest:
                 return False
-            else:
-                if node.left:
-                    validation(node.left, node.val, lowest)
-                if node.right:
-                    validation(node.right, highest, node.val)
-            return True
-        return validation(root.left, root.val, float('-inf')) and validation(root.right, float('inf'), root.val)
+            return validation(node.left, node.val, float('-inf')) and validation(node.right, float('inf'), node.val)
+        return validation(root, float('inf'), float('-inf'))
