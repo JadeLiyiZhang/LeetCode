@@ -6,7 +6,7 @@ class Solution:
         cur_start = intervals[0][0]
         for start, end in intervals:
             if start <= cur_end:
-                cur_end = end
+                cur_end = max(end, cur_end)
             else:
                 res.append([cur_start, cur_end])
                 cur_start = start
