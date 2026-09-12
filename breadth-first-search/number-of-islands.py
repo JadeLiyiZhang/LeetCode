@@ -1,19 +1,19 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        row = len(grid)
-        col = len(grid[0])
-        def dfs(i, j):
-            if  0 <= i < row and 0 <= j < col and grid[i][j] == '1':
-                grid[i][j] = '0'
-                dfs(i, j + 1)
-                dfs(i, j - 1)
-                dfs(i - 1, j)
-                dfs(i + 1, j)
-
+        row, col = len(grid), len(grid[0])
+        
+        def dfs(x, y):
+            directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+            grid[x][y] = 0
+            for i, j in directions:
+                new_x, new_y = x + i, y + j
+                if 0 <= new_x < row and 0 <= new_y < col and grid[new_x][new_y] == "1":
+                    grid[new_x][new_y] = 0
+                    dfs(new_x, new_y)
         res = 0
         for i in range(row):
             for j in range(col):
-                if grid[i][j] == '1':
-                    res += 1
+                if grid[i][j] == "1":
                     dfs(i, j)
+                    res += 1
         return res
