@@ -15,7 +15,7 @@ class Solution:
                 return True
             visited[course] = 1
             for next_course in course_seq[course]:
-                if not dfs(visited[course]):
+                if not dfs(next_course):
                     return False
             visited[course] = 2
             return True
