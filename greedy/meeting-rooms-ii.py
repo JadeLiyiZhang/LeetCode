@@ -9,7 +9,6 @@ class Solution:
             if start < heap[0]:
                 res += 1
                 heapq.heappush(heap, end)
-                print(heap)
             else:
                 heapq.heappop(heap)
                 heapq.heappush(heap, end)
