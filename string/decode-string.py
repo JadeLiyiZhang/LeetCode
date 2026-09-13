@@ -5,7 +5,7 @@ class Solution:
         stack = []
         for char in s:
             if char.isdigit():
-                cur_num = char * 10 + cur_num
+                cur_num = cur_num * 10 + int(char)
             if char.isalpha():
                 cur_s += char
             if char == '[':
