@@ -14,6 +14,10 @@ class Solution:
             else:
                 left_lower[j] = 0
         res = 0
-        for k in range(len(arr)):
+        print(right_lower)
+        print(left_lower)
+        for k in range(0, len(arr)):
+            if right_lower[k] == 0 or left_lower[k] == 0:
+                continue
             res = max(res, left_lower[k] + right_lower[k] + 1)
         return res if res >= 3 else 0
