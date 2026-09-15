@@ -8,7 +8,8 @@ class Solution:
                 nums[left], nums[right] = nums[right], nums[left]
                 left += 1
                 right -= 1
-        k = k % len(nums)
-        helper(0, len(nums) - 1)
+        n = len(nums)
+        k = k % n
+        helper(0, n - 1)
         helper(0, k - 1)
-        helper(k, len(nums) - 1)
+        helper(k, n - 1)
