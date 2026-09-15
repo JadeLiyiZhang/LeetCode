@@ -1,16 +1,14 @@
 class Solution:
-    def rotate(self, nums: List[int], k: int) -> None:
+    def rotate(self, nums: list[int], k: int) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
+        def helper(left, right):
+            while left < right:
+                nums[left], nums[right] = nums[right], nums[left]
+                left += 1
+                right -= 1
         k = k % len(nums)
-        
-        def reverse(nums, l, r):
-            while l <= r:
-                nums[l], nums[r] = nums[r], nums[l]
-                l += 1
-                r -= 1
-
-        reverse(nums, 0, len(nums) - 1)
-        reverse(nums, 0, k - 1)
-        reverse(nums, k, len(nums) - 1)
+        helper(0, len(nums) - 1)
+        helper(0, k - 1)
+        helper(k, len(nums) - 1)
