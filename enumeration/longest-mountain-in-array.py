@@ -14,8 +14,6 @@ class Solution:
             else:
                 left_lower[j] = 0
         res = 0
-        print(right_lower)
-        print(left_lower)
         for k in range(0, len(arr)):
             if right_lower[k] == 0 or left_lower[k] == 0:
                 continue
