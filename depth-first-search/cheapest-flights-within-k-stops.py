@@ -7,7 +7,7 @@ class Solution:
             graph[start].append((end, price))
        
         # dist[m][n] = min cost from src to m when used n steps
-        dist = [[float('inf')] * (k + 1) for _ in range(n)]
+        dist = [[float('inf')] * (k + 2) for _ in range(n)]
         dist[src][0] = 0
         # heap = [price, curr_stop, step_used]
         heap = [(0, src, 0)]
