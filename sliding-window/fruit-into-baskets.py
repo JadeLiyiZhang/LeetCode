@@ -1,18 +1,17 @@
 class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:
+    def totalFruit(self, fruits: list[int]) -> int:
         left = 0
+        storage = {}
         ans = 0
-        count = {}
         for right in range(len(fruits)):
-            fruit = fruits[right]
-            count[fruit] = count.get(fruit, 0) + 1
-            while len(count) > 2:
-                left_fruit = fruits[left]
-                count[left_fruit] -= 1
-
-                if count[left_fruit] == 0:
-                    del count[left_fruit]
-
+            fruit_right = fruits[right]
+            storage[fruit_right] = storage.get(fruit_right, 0 ) + 1
+            while len(storage) > 2:
+                fruit_left = fruits[left]
+                storage[fruit_left] -= 1
+                if storage[fruit_left] == 0:
+                    del storage[fruit_left]
                 left += 1
+            
             ans = max(ans, right - left + 1)
         return ans 
