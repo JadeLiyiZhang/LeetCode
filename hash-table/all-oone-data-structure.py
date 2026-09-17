@@ -78,7 +78,8 @@ class AllOne:
             bucket.prev = newBucket
             newBucket.keys.add(key)
             self.dic[key] = newBucket
-        
+        if not bucket.keys:
+            self.removeNode(bucket)
     def getMaxKey(self) -> str:
         max_bucket = self.tail.prev
         if max_bucket == self.head:
