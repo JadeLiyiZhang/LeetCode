@@ -1,26 +1,26 @@
 class Solution:
-    def numDistinctIslands(self, grid: List[List[int]]) -> int:
-        
+    def numDistinctIslands(self, grid: list[list[int]]) -> int:
+        row, col = len(grid), len(grid[0])
         seen = set()
-        def dfs(x, y, direction):
-            if (x, y) in seen:
+        def dfs(x, y, d, path):
+            if x < 0 or x >= row or y < 0 or y >= col:
                 return
-            if 0 <= x < len(grid) and 0 <= y < len(grid[0]) and grid[x][y] == 1:
-                path.append(direction)
-                seen.add((x, y))
-                dfs(x + 1, y, "D")
-                dfs(x - 1, y, "U")
-                dfs(x, y + 1, "R")
-                dfs(x, y - 1, "L")
-                path.append("0")
+            if grid[x][y] == 0:
+                return
+            if 0 <= x < row and 0 <= y < col and grid[x][y] == 1:
+                path.append(d)
+                grid[x][y] = 0
+                dfs(x + 1, y, "D", path)
+                dfs(x - 1, y, "U", path)
+                dfs(x, y + 1, "R", path)
+                dfs(x, y - 1, "L", path)
+                path.append("B")
 
-        collect = set()
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == 1 and (i, j) not in seen:
+        for i in range(row):
+            for j in range(col):
+                if grid[i][j] == 1:
                     path = []
-                    dfs(i, j, "0")
-                    collect.add(tuple(path))
-        return len(collect)
+                    dfs(i, j, "S", path)
+                    seen.add(''.join(path))
 
-
+        return len(seen)
