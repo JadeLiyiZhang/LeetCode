@@ -18,7 +18,7 @@ class AllOne:
         preBucket = bucket.prev
         nextBucket = bucket.next
         preBucket.next = nextBucket
-        nextBucket.pre = preBucket
+        nextBucket.prev = preBucket
 
 
     def inc(self, key: str) -> None:
