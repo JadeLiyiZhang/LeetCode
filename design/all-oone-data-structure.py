@@ -64,7 +64,7 @@ class AllOne:
         if freq == 1:
             del self.dic[key]
             if not bucket.keys:
-                removeNode(bucket)
+                self.removeNode(bucket)
         if bucket.prev.freq == freq - 1:
             bucket.prev.keys.add(key)
             self.dic[key] = bucket.prev
