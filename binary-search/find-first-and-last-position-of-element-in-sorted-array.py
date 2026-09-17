@@ -1,33 +1,37 @@
 class Solution:
-    def searchRange(self, nums: List[int], target: int) -> List[int]:
-        if not nums:
-            return [-1, -1]
-        def findFirst(nums, target):
+    def searchRange(self, nums: list[int], target: int) -> list[int]:
+        def findFirst(target):
             left, right = 0, len(nums) - 1
-            while left < right:
+            res = float("inf")
+            while left <= right:
                 mid = left + (right - left) // 2
                 if nums[mid] == target:
-                    right = mid
-                elif nums[mid] < target:
-                    left = mid + 1
-                else:
+                    res = min(res, mid)
                     right = mid - 1
-            return left if nums[right] == target else -1
-        
-        def findLast(nums, target):
+                elif nums[mid] > target:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            return res
+
+        def findLast(target):
             left, right = 0, len(nums) - 1
-            while left < right:
-                mid = left + (right - left + 1) // 2
+            res = float('-inf')
+            while left <= right:
+                mid = left + (right - left) // 2
                 if nums[mid] == target:
-                    left = mid
-                elif nums[mid] < target:
+                    res = max(res, mid)
                     left = mid + 1
-                else:
+                elif nums[mid] > target:
                     right = mid - 1
-            return left if nums[left] == target else -1
+                else:
+                    left = mid + 1
+            return res
         
-        first = findFirst(nums, target)
-        if first == -1:
-            return [-1, -1]
-        last = findLast(nums, target)
+        first = findFirst(target)
+        last = findLast(target)
+        if first == float('inf'):
+            first = -1
+        if last == float('-inf'):
+            last = -1
         return [first, last]
