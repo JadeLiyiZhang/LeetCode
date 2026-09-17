@@ -65,17 +65,17 @@ class AllOne:
             del self.dic[key]
             if not bucket.keys:
                 self.removeNode(bucket)
+            return
         if bucket.prev.freq == freq - 1:
             bucket.prev.keys.add(key)
             self.dic[key] = bucket.prev
         else:
             prev_bucket = bucket.prev
-            next_bucket = bucket.next
             newBucket = Bucket(freq - 1)
             newBucket.prev = prev_bucket
             prev_bucket.next = newBucket
-            newBucket.next = next_bucket
-            next_bucket.prev = newBucket
+            newBucket.next = bucket
+            bucket.prev = newBucket
             newBucket.keys.add(key)
             self.dic[key] = newBucket
         
