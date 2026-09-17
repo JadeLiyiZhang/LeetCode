@@ -5,18 +5,18 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
-        hash_map = {0: 1}
-        
-        def backtrack(node, curr_sum):
+    def pathSum(self, root: TreeNode | None, targetSum: int) -> int:
+        table = {0: 1}
+        count = 0
+        def dfs(node, cur_sum):
+            nonlocal count
             if not node:
                 return 0
-            
-            curr_sum += node.val
-            count = hash_map.get(curr_sum - targetSum, 0)
-            hash_map[curr_sum] = hash_map.get(curr_sum, 0) + 1
-            count += backtrack(node.left, curr_sum)
-            count += backtrack(node.right, curr_sum)
-            hash_map[curr_sum] -= 1
-            return count
-        return backtrack(root, 0)
+            cur_sum += node.val
+            count += table.get(cur_sum - targetSum, 0)
+            table[cur_sum] = table.get(cur_sum, 0) + 1
+            dfs(node.left, cur_sum)
+            dfs(node.right, cur_sum)
+            table[cur_sum] -= 1
+        dfs(root, 0)
+        return count
