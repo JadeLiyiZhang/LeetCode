@@ -7,7 +7,6 @@ class Solution:
         count = 0
         ans = 0
         for right in range(len(s)):
-            print(map)
             if s[right] not in map:
                 count += 1
                 map[s[right]] = map.get(s[right], 0) + 1
