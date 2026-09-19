@@ -5,6 +5,7 @@ class Solution:
         prefix_sum = 0
         for num in nums:
             prefix_sum += num
-            res += prefix_table.get(prefix_sum % k, 0)
-            prefix_table[prefix_sum % k] = prefix_table.get(prefix_sum % k, 0) + 1
+            remainder = prefix_sum % k
+            res += prefix_table.get(remainder, 0)
+            prefix_table[remainder] = prefix_table.get(remainder, 0) + 1
         return res
