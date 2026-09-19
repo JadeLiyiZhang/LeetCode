@@ -2,8 +2,6 @@ class Solution:
     def lengthOfLongestSubstringKDistinct(self, s: str, k: int) -> int:
         if k == 0:
             return 0
-        if k == 1:
-            return 1
         map = {}
         left = 0
         count = 0
@@ -17,5 +15,7 @@ class Solution:
                     if map[s[left]] == 0:
                         count -= 1
                     left += 1
+            else:
+                map[s[right]] += 1
             ans = max(ans, right - left + 1)
         return ans
