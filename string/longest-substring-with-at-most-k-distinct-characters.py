@@ -8,7 +8,7 @@ class Solution:
             if s[right] not in map:
                 count += 1
                 map[s[right]] = map.get(s[right], 0) + 1
-                while count > 2:
+                while count > k:
                     map[s[left]] -= 1
                     if map[s[left]] == 0:
                         count -= 1
