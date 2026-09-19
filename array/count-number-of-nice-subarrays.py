@@ -10,8 +10,10 @@ class Solution:
         odd_count = 0
         ans = 0
         for num in nums:
-            if num % 2 ==1:
-                odd_count += 1
-                ans += prefix.get(odd_count - k, 0)
-                prefix[odd_count] = prefix.get(odd_count, 0) + 1
+            odd_count += num % 2
+            ans += prefix.get(odd_count - k, 0)
+            prefix[odd_count] = (
+                prefix.get(odd_count, 0) + 1
+            )
+
         return ans
