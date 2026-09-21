@@ -2,7 +2,7 @@
 
 # 295. Find Median from Data Stream
 
-![Difficulty](https://img.shields.io/badge/DIFFICULTY-Hard-ef4743?style=for-the-badge&labelColor=1a1a2e)  ![Language](https://img.shields.io/badge/LANGUAGE-Python-6c5ce7?style=for-the-badge&labelColor=1a1a2e)  ![Solutions](https://img.shields.io/badge/SOLUTIONS-1-6c5ce7?style=for-the-badge&labelColor=1a1a2e)  ![Date](https://img.shields.io/badge/DATE-2026--09--21-605d5d?style=for-the-badge&labelColor=1a1a2e)
+![Difficulty](https://img.shields.io/badge/DIFFICULTY-Hard-ef4743?style=for-the-badge&labelColor=1a1a2e)  ![Language](https://img.shields.io/badge/LANGUAGE-Python-6c5ce7?style=for-the-badge&labelColor=1a1a2e)  ![Solutions](https://img.shields.io/badge/SOLUTIONS-2-6c5ce7?style=for-the-badge&labelColor=1a1a2e)  ![Date](https://img.shields.io/badge/DATE-2026--09--21-605d5d?style=for-the-badge&labelColor=1a1a2e)
 
 [![View on LeetCode](https://img.shields.io/badge/View%20on-LeetCode-ffa116?style=flat-square&logo=leetcode&logoColor=ffa116)](https://leetcode.com/problems/find-median-from-data-stream/)
 
@@ -15,7 +15,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="panel-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="panel-light.svg">
-  <img alt="Topics: Two Pointers, Design, Sorting, Heap (Priority Queue), Data Stream — best runtime 1307 ms (Beats 8%), best memory 43.2 MB (Beats 12%)" src="panel-dark.svg">
+  <img alt="Topics: Two Pointers, Design, Sorting, Heap (Priority Queue), Data Stream — best runtime 147 ms (Beats 85%), best memory 42.2 MB (Beats 41%)" src="panel-dark.svg">
 </picture>
 
 </div>
@@ -26,9 +26,9 @@
 
 | | |
 |:--|:--|
-| **Attempts** | first try |
-| **Time to solve** | under a minute |
-| **Verdicts** | ✅ Accepted |
+| **Attempts** | 4 before accepted |
+| **Time to solve** | 23 min |
+| **Verdicts** | ✅ Accepted → ❌ Wrong Answer → ❌ Wrong Answer → ✅ Accepted |
 
 ---
 
@@ -38,11 +38,12 @@ _No notes yet._
 
 ---
 
-### SOLUTIONS (1)
+### SOLUTIONS (2)
 
 | # | File | Language | Date |
 |:-:|------|:--------:|:----:|
-| 1 | [sol1.py](./sol1.py) | `Python` | 2026-09-21 ← **latest** |
+| 1 | [sol1.py](./sol1.py) | `Python` | 2026-09-21 |
+| 2 | [sol2.py](./sol2.py) | `Python` | 2026-09-21 ← **latest** |
 
 ---
 
