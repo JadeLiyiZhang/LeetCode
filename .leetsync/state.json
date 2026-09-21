@@ -1,9 +1,9 @@
 {
   "v": 1,
-  "updatedAt": 1789994547173,
+  "updatedAt": 1790010252030,
   "devices": {
     "a70451e2-6bb5-4858-aaed-f5d7f328c487": {
-      "lastSeen": 1789994546723
+      "lastSeen": 1790010250405
     }
   },
   "problems": {
@@ -26,10 +26,11 @@
         "Binary Tree"
       ],
       "title": "Binary Tree Right Side View",
-      "at": 1789994546723
+      "at": 1790010250405
     }
   },
   "achievements": {
+    "early_bird": 1789994548161,
     "first_blood": 1789956469559,
     "night_owl": 1789976269295
   },
