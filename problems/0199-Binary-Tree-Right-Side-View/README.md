@@ -15,7 +15,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="panel-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="panel-light.svg">
-  <img alt="Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree — best runtime 0 ms (Beats 100%), best memory 19.4 MB (Beats 34%)" src="panel-dark.svg">
+  <img alt="Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree — best runtime 0 ms (Beats 100%), best memory 19.2 MB (Beats 93%)" src="panel-dark.svg">
 </picture>
 
 </div>
@@ -24,9 +24,9 @@
 
 | | |
 |:--|:--|
-| **Attempts** | 2 before accepted |
-| **Time to solve** | 1 min |
-| **Verdicts** | ✅ Accepted → ✅ Accepted |
+| **Attempts** | 3 before accepted |
+| **Time to solve** | 2 min |
+| **Verdicts** | ✅ Accepted → ✅ Accepted → ✅ Accepted |
 
 ---
 
