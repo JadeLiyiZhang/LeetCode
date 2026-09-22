@@ -1,9 +1,9 @@
 {
   "v": 1,
-  "updatedAt": 1790035138062,
+  "updatedAt": 1790035304390,
   "devices": {
     "a70451e2-6bb5-4858-aaed-f5d7f328c487": {
-      "lastSeen": 1790035137653
+      "lastSeen": 1790035303962
     }
   },
   "problems": {
@@ -27,7 +27,7 @@
         "DP on Trees"
       ],
       "title": "Binary Tree Maximum Path Sum",
-      "at": 1790035137653
+      "at": 1790035303962
     },
     "199": {
       "attempts": 3,
@@ -48,7 +48,7 @@
         "Binary Tree"
       ],
       "title": "Binary Tree Right Side View",
-      "at": 1790035137653
+      "at": 1790035303962
     },
     "209": {
       "attempts": 5,
@@ -69,7 +69,7 @@
         "Prefix Sum"
       ],
       "title": "Minimum Size Subarray Sum",
-      "at": 1790035137653
+      "at": 1790035303962
     },
     "295": {
       "attempts": 4,
@@ -91,10 +91,33 @@
         "Data Stream"
       ],
       "title": "Find Median from Data Stream",
-      "at": 1790035137653
+      "at": 1790035303962
+    },
+    "3161": {
+      "attempts": 6,
+      "bestMemory": "78.6 MB (Beats 91%)",
+      "bestRuntime": "3830 ms (Beats 63%)",
+      "date": "2026-09-21",
+      "difficulty": "Hard",
+      "firstSolvedOn": "2026-09-21",
+      "folderName": "3161-Block-Placement-Queries",
+      "language": "Python",
+      "number": 3161,
+      "slug": "block-placement-queries",
+      "solutionCount": 1,
+      "tags": [
+        "Array",
+        "Binary Search",
+        "Binary Indexed Tree",
+        "Segment Tree",
+        "Ordered Set"
+      ],
+      "title": "Block Placement Queries",
+      "at": 1790035303962
     }
   },
   "achievements": {
+    "bookworm": 1790035148339,
     "early_bird": 1789994548161,
     "first_blood": 1789956469559,
     "night_owl": 1789976269295
@@ -105,7 +128,7 @@
   ],
   "bests": {
     "longestStreak": 1,
-    "pushes": 7
+    "pushes": 8
   },
   "identity": {
     "installId": "1be8d754-986b-4ac6-839b-d75deaa96fa1",
